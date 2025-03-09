@@ -29,7 +29,7 @@ st.write("Visualisasi ini menganalisis pengaruh kondisi cuaca, hari kerja vs har
 st.markdown("---")
 
 # 1. Visualisasi Pengaruh Cuaca terhadap Waktu Peminjaman Sepeda
-st.subheader("Pengaruh Cuaca terhadap Waktu Peminjaman Sepeda")
+st.subheader("Bagaimana pengaruh kondisi cuaca terhadap jumlah penggunaan sepeda pada berbagai jam dalam sehari?")
 
 # Fungsi untuk memplot pengaruh cuaca terhadap waktu peminjaman sepeda
 def plot_weather_impact(hour_df, start_date, end_date):
@@ -84,7 +84,7 @@ st.write("---")
 
 
 # 2. Visualisasi Pengaruh Hari Kerja terhadap Waktu Peminjaman Sepeda
-st.subheader("Pengaruh Hari Kerja terhadap Waktu Peminjaman Sepeda")
+st.subheader("Kapan waktu puncak penggunaan sepeda pada hari kerja dan hari libur?")
 
 # Fungsi untuk memplot pengaruh hari kerja terhadap penggunaan sepeda
 def plot_workingday_impact(hour_df, start_date, end_date):
@@ -121,7 +121,7 @@ Penggunaan sepeda sangat dipengaruhi oleh status hari kerja atau hari libur. Pad
 st.write("---")
 
 # 3. Visualisasi RFM Analysis - Pengaruh Cuaca terhadap Penyewaan Sepeda
-st.subheader("RFM Analysis - Pengaruh Cuaca terhadap Penyewaan Sepeda")
+st.subheader("Analisis Lanjutan dengan Metode RFM Analysis - Pengaruh Cuaca terhadap Penyewaan Sepeda")
 
 # Fungsi untuk memvisualisasikan RFM Analysis
 def plot_rfm_analysis(hour_df):
@@ -174,7 +174,7 @@ Secara keseluruhan, cuaca cerah mendorong penggunaan sepeda yang lebih tinggi, s
 st.write("---")
 
 # 4. Visualisasi RFM Analysis: Pengaruh Hari Kerja dan Hari Libur terhadap Penggunaan Sepeda
-st.subheader('RFM Analysis: Pengaruh Hari Kerja dan Hari Libur terhadap Penggunaan Sepeda')
+st.subheader('Analisis Lanjutan dengan Metode RFM Analysis: Pengaruh Hari Kerja dan Hari Libur terhadap Penggunaan Sepeda')
 
 # Menghitung RFM berdasarkan hari kerja dan hari libur
 rfm_workingday = hour_df.groupby(['hr', 'workingday']).agg(
