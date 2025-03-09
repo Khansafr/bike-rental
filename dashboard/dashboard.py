@@ -8,8 +8,8 @@ from sklearn.preprocessing import MinMaxScaler
 sns.set(style="whitegrid")
 
 # Membaca dataset
-day_df = pd.read_csv("day.csv")
-hour_df = pd.read_csv("hour.csv")
+day_df = pd.read_csv("https://raw.githubusercontent.com/Khansafr/bike-rental/refs/heads/main/data/day.csv")
+hour_df = pd.read_csv("https://raw.githubusercontent.com/Khansafr/bike-rental/refs/heads/main/data/hour.csv")
 
 min_date = day_df['dteday'].min()
 max_date = day_df['dteday'].max()
