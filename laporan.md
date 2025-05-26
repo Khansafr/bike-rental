@@ -111,18 +111,22 @@ Model dievaluasi menggunakan metrik:
 - Root Mean Squared Error (RMSE)
 - Mean Absolute Error (MAE)
 
-### Hasil Evaluasi:
+### Hasil Evaluasi Model (Baseline vs Tuned)
 
-| Model               | R²    | MSE   | RMSE  | MAE   |
-|---------------------|-------|-------|-------|-------|
-| Random Forest       | 0.84  | 0.12  | 0.34  | 0.25  |
-| XGBoost             | 0.85  | 0.11  | 0.33  | 0.24  |
-| Decision Tree       | 0.75  | 0.21  | 0.45  | 0.32  |
-| **XGBoost Tuned**   | **0.88** | **0.09** | **0.30** | **0.22** |
-| Random Forest Tuned | 0.87  | 0.10  | 0.31  | 0.23  |
-| Decision Tree Tuned | 0.77  | 0.19  | 0.43  | 0.30  |
+| Model                  | R² Score | MSE     | RMSE    | MAE     |
+|------------------------|----------|---------|---------|---------|
+| **Baseline Models**    |          |         |         |         |
+| XGBoost                | 0.9923   | 0.0280  | 0.1672  | 0.0870  |
+| Random Forest          | 0.9935   | 0.0236  | 0.1537  | 0.0368  |
+| Decision Tree          | 0.9900   | 0.0364  | 0.1908  | 0.0694  |
+| **Tuned Models**       |          |         |         |         |
+| Random Forest Tuned    | **0.9941** | **0.0215** | **0.1468** | 0.0410  |
+| XGBoost Tuned          | 0.9928   | 0.0260  | 0.1612  | 0.0622  |
+| Decision Tree Tuned    | 0.9896   | 0.0377  | 0.1941  | 0.0540  |
 
-### Model Terbaik:
-- **XGBoost Tuned**: memberikan akurasi tertinggi (R² = 0.88)
+### Model Terbaik
+- **Random Forest Tuned** menjadi model terbaik berdasarkan skor **R² = 0.9941**, serta nilai MSE dan RMSE yang paling rendah.
+- Model ini menunjukkan kinerja prediktif paling tinggi dalam memprediksi harga apartemen di Jakarta.
+
 
 ---
