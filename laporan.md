@@ -120,10 +120,6 @@ Model dievaluasi menggunakan metrik evaluasi yang tepat, yaitu **R2, MAE, MSE, d
 | XGBoost       | Akurat dan efisien untuk boosting  | Kompleks dan lebih sensitif terhadap tuning |
 | Decision Tree | Sederhana, interpretatif           | Mudah overfitting                           |
 
-### Model Terbaik
-
-* Model terbaik dipilih berdasarkan nilai R² tertinggi dan MAE terkecil.
-* **XGBoost Tuned** menunjukkan performa terbaik.
 
 ## 6. Evaluation
 
@@ -135,24 +131,22 @@ Model dievaluasi menggunakan metrik evaluasi yang tepat, yaitu **R2, MAE, MSE, d
 * **RMSE (Root Mean Squared Error)**
 * **MAE (Mean Absolute Error)**
 
-### Hasil Evaluasi Model:
+### Hasil Evaluasi Model (Baseline vs Tuned)
 
-| Model               | R2     | MSE    | RMSE   | MAE    |
-| ------------------- | ------ | ------ | ------ | ------ |
-| XGBoost             | 0.9140 | 0.0321 | 0.1791 | 0.1342 |
-| Random Forest       | 0.9092 | 0.0340 | 0.1843 | 0.1371 |
-| Decision Tree       | 0.8796 | 0.0457 | 0.2137 | 0.1584 |
-| XGBoost Tuned       | 0.9245 | 0.0287 | 0.1693 | 0.1259 |
-| Random Forest Tuned | 0.9197 | 0.0305 | 0.1746 | 0.1290 |
-| Decision Tree Tuned | 0.8847 | 0.0434 | 0.2083 | 0.1528 |
+| Model                  | R² Score | MSE     | RMSE    | MAE     |
+|------------------------|----------|---------|---------|---------|
+| **Baseline Models**    |          |         |         |         |
+| XGBoost                | 0.9923   | 0.0280  | 0.1672  | 0.0870  |
+| Random Forest          | 0.9935   | 0.0236  | 0.1537  | 0.0368  |
+| Decision Tree          | 0.9900   | 0.0364  | 0.1908  | 0.0694  |
+| **Tuned Models**       |          |         |         |         |
+| Random Forest Tuned    | **0.9941** | **0.0215** | **0.1468** | 0.0410  |
+| XGBoost Tuned          | 0.9928   | 0.0260  | 0.1612  | 0.0622  |
+| Decision Tree Tuned    | 0.9896   | 0.0377  | 0.1941  | 0.0540  |
 
-### Prediksi Sampel
-
-Contoh hasil prediksi pada data test:
-
-* Prediksi: Rp 15.300.000.000
-* Aktual: Rp 14.800.000.000
-* Selisih: Rp 500.000.000 (Error 3.4%)
+### ✅ Model Terbaik
+- **Random Forest Tuned** menjadi model terbaik berdasarkan skor **R² = 0.9941**, serta nilai MSE dan RMSE yang paling rendah.
+- Model ini menunjukkan kinerja prediktif paling tinggi dalam memprediksi harga apartemen di Jakarta.
 
 ## 7. Struktur Laporan
 
