@@ -152,6 +152,12 @@ Model dievaluasi menggunakan metrik evaluasi yang tepat, yaitu **R2, MAE, MSE, d
 - **Random Forest Tuned** menjadi model terbaik berdasarkan skor **R² = 0.9941**, serta nilai MSE dan RMSE yang paling rendah.
 - Model ini menunjukkan kinerja prediktif paling tinggi dalam memprediksi harga apartemen di Jakarta.
 
+#### Gambar 3: Perbandingan Harga Aktual vs Prediksi (Random Forest Tuned)
+![Actual vs Predicted](https://drive.google.com/uc?export=view&id=1PKL8gjSYwSv2ahWRkW7Tma2Zcflgj5tK)
+
+#### Gambar 4: Distribusi Persentase Error Prediksi
+![Percentage Error](https://drive.google.com/uc?export=1hwxQd9brPgoDofaYv91iKR8qIrclZ8Zj)
+
 ---
 
 **Catatan**: Notebook ini mendukung reproduksibilitas penuh dengan menyimpan model terbaik (`joblib`) dan scaler yang digunakan.
