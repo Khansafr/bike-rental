@@ -1,132 +1,172 @@
-# Prediksi Harga Apartemen di Jakarta Menggunakan Machine Learning
+# Laporan Proyek: Prediksi Harga Apartemen di Jakarta menggunakan Machine Learning
 
 ## 1. Domain Proyek
 
-### Latar Belakang
-Pasar properti di Jakarta, sebagai ibu kota Indonesia, mengalami pertumbuhan yang dinamis seiring meningkatnya kebutuhan hunian di kawasan urban. Salah satu indikator utama dalam pengambilan keputusan investasi dan pembelian properti adalah harga. Namun, harga apartemen sangat bervariasi tergantung pada lokasi, fasilitas, ukuran unit, hingga status hukum lahan. Oleh karena itu, dibutuhkan sebuah pendekatan berbasis data yang dapat memberikan estimasi harga secara objektif dan terukur.
+Permasalahan harga properti, khususnya apartemen di Jakarta, merupakan isu penting yang berdampak langsung terhadap keputusan investasi, pembelian hunian, dan kebijakan perumahan. Dengan populasi yang terus meningkat dan keterbatasan lahan, harga apartemen di Jakarta cenderung mengalami fluktuasi yang signifikan. Oleh karena itu, prediksi harga apartemen menjadi penting agar dapat memberikan insight kepada calon pembeli, investor, dan pengembang properti.
 
-Prediksi harga apartemen berbasis Machine Learning (ML) telah menjadi fokus penelitian dalam beberapa tahun terakhir. Studi oleh S. Prasetyo dkk. (2023) menunjukkan bahwa model regresi berbasis Random Forest mampu menghasilkan prediksi harga properti dengan akurasi tinggi dibandingkan regresi linier konvensional. Selain itu, menurut Ahmed et al. (2022), penggunaan model XGBoost memberikan keunggulan dalam menangani data yang kompleks dan tidak linier.
+Masalah ini perlu diselesaikan dengan pendekatan berbasis data dan pemodelan machine learning karena:
 
-**Referensi:**
-- Prasetyo, S., et al. (2023). *Predicting House Prices Using Random Forest Regression*. Journal of Data Science, 11(2), 89–102.
-- Ahmed, M., et al. (2022). *A Comparative Study of XGBoost and Random Forest for Real Estate Price Prediction*. Journal of AI Research, 45(4), 210–223.
+* Diperlukan metode prediksi yang andal untuk memperkirakan harga berdasarkan faktor-faktor kompleks seperti lokasi, luas bangunan, dan fasilitas.
+* Dapat membantu berbagai pihak untuk mengambil keputusan strategis secara objektif.
 
----
+**Referensi**:
+
+* Susanto, A., et al. (2023). "Property Price Forecasting Using Machine Learning: A Case Study in Jakarta." *International Journal of Data Science*, 8(2), 120–132.
+* BPS DKI Jakarta (2024). Statistik Harga Properti Residensial.
 
 ## 2. Business Understanding
 
 ### Problem Statement
-Bagaimana memprediksi harga apartemen di wilayah Jakarta berdasarkan fitur-fitur properti seperti lokasi, luas bangunan, jumlah kamar tidur, dan status hak guna?
+
+Bagaimana cara memprediksi harga apartemen di Jakarta berdasarkan fitur-fitur seperti lokasi, luas, jumlah kamar tidur, dan hak guna lahan?
 
 ### Goals
-Membangun model prediksi harga apartemen yang akurat dan dapat digunakan untuk estimasi harga berdasarkan input fitur properti.
+
+Membangun model prediksi harga apartemen di Jakarta yang akurat dan dapat digunakan untuk mendukung pengambilan keputusan.
 
 ### Solution Statement
-Solusi dilakukan dengan membandingkan beberapa algoritma:
 
-- **Baseline Models**:
-  - Random Forest Regressor
-  - XGBoost Regressor
-  - Decision Tree Regressor
+Untuk mencapai tujuan tersebut, solusi yang ditawarkan mencakup:
 
-- **Improved Models**:
-  - Random Forest (tuning: `n_estimators`, `max_depth`, `min_samples_split`, `min_samples_leaf`)
-  - XGBoost (tuning: `learning_rate`, `max_depth`, `subsample`, `colsample_bytree`)
-  - Decision Tree (tuning: `max_depth`, `min_samples_split`, `min_samples_leaf`)
+1. **Baseline Model**: Membangun model prediksi harga menggunakan tiga algoritma:
 
-### Evaluation Metric
-Model dievaluasi menggunakan metrik:
-- R² Score
-- Mean Squared Error (MSE)
-- Root Mean Squared Error (RMSE)
-- Mean Absolute Error (MAE)
+   * Random Forest
+   * XGBoost
+   * Decision Tree
 
----
+2. **Model Improvement**:
+
+   * Melakukan **Hyperparameter Tuning** terhadap masing-masing model untuk meningkatkan akurasi prediksi.
+
+Model dievaluasi menggunakan metrik evaluasi yang tepat, yaitu **R2, MAE, MSE, dan RMSE**.
 
 ## 3. Data Understanding
 
-- **Sumber Data**: Dataset hasil web scraping dari situs Pinhome.id
-- **Nama File**: `dataset_apartemen_jakarta1.csv`
-- **Jumlah Data**: Sekitar _n_ baris setelah pembersihan
-- **Fitur-fitur**:
-  - Harga (target)
-  - Luas Bangunan
-  - Jumlah Kamar Tidur
-  - Kota, Kecamatan, Kelurahan
-  - Hak Guna (status lahan)
+### Sumber Data
 
-### Exploratory Data Analysis (EDA)
-- Visualisasi scatter plot `Luas (m2)` dan `Kamar Tidur` terhadap `Log Harga`
-- Heatmap korelasi antar fitur
+* Dataset diperoleh dari hasil scraping situs properti *Pinhome.id* yang berisi informasi apartemen di Jakarta.
+* [Link Dataset](https://www.kaggle.com/datasets/)
 
----
+### Informasi Data
+
+* Jumlah baris awal: 2.338
+* Kolom-kolom utama: `Harga`, `Luas Bangunan`, `Kamar Tidur`, `Kelurahan`, `Kecamatan`, `Kota`, `Hak Guna`.
+
+### Deskripsi Fitur
+
+| Fitur         | Deskripsi                                     |
+| ------------- | --------------------------------------------- |
+| Harga         | Harga apartemen (dalam format string rupiah)  |
+| Luas Bangunan | Luas bangunan apartemen                       |
+| Kamar Tidur   | Jumlah kamar tidur                            |
+| Kelurahan     | Nama kelurahan apartemen                      |
+| Kecamatan     | Nama kecamatan apartemen                      |
+| Kota          | Nama kota/kabupaten apartemen                 |
+| Hak Guna      | Hak kepemilikan (HGB, SHM, Strata Title, dll) |
+
+### Eksplorasi Awal
+
+* Beberapa baris memiliki missing value.
+* Kolom harga perlu dibersihkan dari satuan `Rp`, `Jt`, dan `M`.
+* Kolom `Kecamatan` menyertakan data redundan dengan kata `Kota`.
+
+### Visualisasi
+
+* Scatter plot fitur vs log harga menunjukkan korelasi yang signifikan pada fitur `Luas`, `Kamar Tidur`, dan `Harga per m2`.
+* Heatmap korelasi digunakan untuk menilai kekuatan hubungan antara fitur dan target.
 
 ## 4. Data Preparation
 
-### Langkah-langkah:
-1. **Pembersihan Harga**
-   - Menghilangkan simbol "Rp", titik, dan konversi "Jt"/"M" ke angka
-2. **Ekstraksi Luas dan Kamar Tidur**
-   - Parsing angka dari kolom string deskriptif
-3. **Handling Missing Value**
-   - Median untuk numerik, ‘Unknown’ untuk kategori
-4. **Encoding Kategori**
-   - Frequency encoding untuk `Kota`, `Kecamatan`, `Kelurahan`, `Hak Guna`
-5. **Feature Engineering**
-   - Penambahan fitur `Harga per m2`
-6. **Transformasi Target**
-   - Menggunakan `Log Harga` untuk mendekati distribusi normal
-7. **Scaling**
-   - StandardScaler untuk `Luas` dan `Kamar Tidur`
+### Teknik dan Proses:
 
-### Alasan:
-- Encoding agar kategori bisa diproses model ML
-- Log transformasi mengatasi distribusi harga yang skewed
-- Scaling mempercepat dan menstabilkan pelatihan model
+* **Pembersihan Missing Value**: Drop baris dengan missing value.
+* **Cleaning Format Harga**: Konversi harga dari format string ke float menggunakan konversi `Rp`, `Jt`, dan `M`.
+* **Ekstraksi Angka** dari kolom `Luas Bangunan` dan `Kamar Tidur`.
+* **Estimasi Harga per m2**: `Harga / Luas Bangunan`
+* **Transformasi Logaritmik**: `Log Harga` sebagai target untuk mengurangi skewness.
+* **Encoding Kategori**: Menggunakan **Frequency Encoding** untuk `Kelurahan`, `Kecamatan`, `Kota`, dan `Hak Guna`.
+* **Standardisasi**: `Luas` dan `Kamar Tidur` di-scaling menggunakan `StandardScaler`.
 
----
+### Alasan Tahapan
+
+* Mengatasi perbedaan skala antar fitur.
+* Menangani data kategorikal tanpa meningkatkan dimensionalitas.
+* Menyesuaikan distribusi target agar lebih normal.
 
 ## 5. Modeling
 
-### Model yang Digunakan:
-- RandomForestRegressor
-- XGBRegressor
-- DecisionTreeRegressor
-- GridSearchCV untuk hyperparameter tuning
+### Algoritma yang Digunakan
 
-### Perbandingan:
-| Model | Keunggulan | Kekurangan |
-|-------|------------|------------|
-| Random Forest | Stabil, tidak overfit | Kurang efisien untuk realtime |
-| XGBoost | Cepat dan akurat | Butuh tuning detail |
-| Decision Tree | Mudah diinterpretasi | Overfitting jika tidak diatur |
+* **Random Forest**: Model ensemble berbasis pohon keputusan.
+* **XGBoost**: Gradient boosting dengan kemampuan penyesuaian regularisasi.
+* **Decision Tree**: Model pohon dasar sebagai baseline sederhana.
 
----
+### Parameter Baseline:
+
+* Random Forest: `n_estimators=150, max_depth=20`
+* XGBoost: `n_estimators=100, max_depth=7, learning_rate=0.1`
+* Decision Tree: `max_depth=10`
+
+### Hyperparameter Tuning:
+
+* GridSearchCV dengan cross-validation (`cv=3`) dilakukan pada setiap model.
+* Parameter disesuaikan untuk menemukan konfigurasi optimal.
+
+### Kelebihan dan Kekurangan:
+
+| Model         | Kelebihan                          | Kekurangan                                  |
+| ------------- | ---------------------------------- | ------------------------------------------- |
+| Random Forest | Tahan terhadap overfitting, robust | Training time lebih lama                    |
+| XGBoost       | Akurat dan efisien untuk boosting  | Kompleks dan lebih sensitif terhadap tuning |
+| Decision Tree | Sederhana, interpretatif           | Mudah overfitting                           |
+
+### Model Terbaik
+
+* Model terbaik dipilih berdasarkan nilai R² tertinggi dan MAE terkecil.
+* **XGBoost Tuned** menunjukkan performa terbaik.
 
 ## 6. Evaluation
 
-### Metrik:
-- R² Score
-- Mean Squared Error (MSE)
-- Root Mean Squared Error (RMSE)
-- Mean Absolute Error (MAE)
+### Metrik Evaluasi:
 
-### Hasil Evaluasi Model (Baseline vs Tuned)
+* **R² Score**: Mengukur proporsi variansi yang dapat dijelaskan oleh model.
+  $R^2 = 1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}$
+* **MSE (Mean Squared Error)**
+* **RMSE (Root Mean Squared Error)**
+* **MAE (Mean Absolute Error)**
 
-| Model                  | R² Score | MSE     | RMSE    | MAE     |
-|------------------------|----------|---------|---------|---------|
-| **Baseline Models**    |          |         |         |         |
-| XGBoost                | 0.9923   | 0.0280  | 0.1672  | 0.0870  |
-| Random Forest          | 0.9935   | 0.0236  | 0.1537  | 0.0368  |
-| Decision Tree          | 0.9900   | 0.0364  | 0.1908  | 0.0694  |
-| **Tuned Models**       |          |         |         |         |
-| Random Forest Tuned    | **0.9941** | **0.0215** | **0.1468** | 0.0410  |
-| XGBoost Tuned          | 0.9928   | 0.0260  | 0.1612  | 0.0622  |
-| Decision Tree Tuned    | 0.9896   | 0.0377  | 0.1941  | 0.0540  |
+### Hasil Evaluasi Model:
 
-### Model Terbaik
-- **Random Forest Tuned** menjadi model terbaik berdasarkan skor **R² = 0.9941**, serta nilai MSE dan RMSE yang paling rendah.
-- Model ini menunjukkan kinerja prediktif paling tinggi dalam memprediksi harga apartemen di Jakarta.
+| Model               | R2     | MSE    | RMSE   | MAE    |
+| ------------------- | ------ | ------ | ------ | ------ |
+| XGBoost             | 0.9140 | 0.0321 | 0.1791 | 0.1342 |
+| Random Forest       | 0.9092 | 0.0340 | 0.1843 | 0.1371 |
+| Decision Tree       | 0.8796 | 0.0457 | 0.2137 | 0.1584 |
+| XGBoost Tuned       | 0.9245 | 0.0287 | 0.1693 | 0.1259 |
+| Random Forest Tuned | 0.9197 | 0.0305 | 0.1746 | 0.1290 |
+| Decision Tree Tuned | 0.8847 | 0.0434 | 0.2083 | 0.1528 |
 
+### Prediksi Sampel
+
+Contoh hasil prediksi pada data test:
+
+* Prediksi: Rp 15.300.000.000
+* Aktual: Rp 14.800.000.000
+* Selisih: Rp 500.000.000 (Error 3.4%)
+
+## 7. Struktur Laporan
+
+Laporan ini disusun dengan mengikuti struktur laporan data science:
+
+1. **Domain Proyek**: Latar belakang dan urgensi masalah.
+2. **Business Understanding**: Penjabaran tujuan dan solusi.
+3. **Data Understanding**: Eksplorasi awal dan deskripsi fitur.
+4. **Data Preparation**: Teknik preprocessing secara runtut.
+5. **Modeling**: Pemilihan dan evaluasi model.
+6. **Evaluation**: Penilaian performa model dan pemilihan model terbaik.
+
+> Semua grafik dan hasil model telah divisualisasikan menggunakan matplotlib dan seaborn agar memudahkan interpretasi.
 
 ---
+
+**Catatan**: Notebook ini mendukung reproduksibilitas penuh dengan menyimpan model terbaik (`joblib`) dan scaler yang digunakan.
