@@ -45,7 +45,7 @@ Model dievaluasi menggunakan metrik evaluasi yang tepat, yaitu **R2, MAE, MSE, d
 ### Sumber Data
 
 * Dataset diperoleh dari hasil scraping situs properti *Pinhome.id* yang berisi informasi apartemen di Jakarta.
-* [Link Dataset](https://www.kaggle.com/datasets/)
+* [Link Dataset](https://drive.google.com/file/d/1VUa17MfU3vf9sMmxc23D0kcpQD45mCUs/view?usp=sharing)
 
 ### Informasi Data
 
