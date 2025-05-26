@@ -148,19 +148,6 @@ Model dievaluasi menggunakan metrik evaluasi yang tepat, yaitu **R2, MAE, MSE, d
 - **Random Forest Tuned** menjadi model terbaik berdasarkan skor **R² = 0.9941**, serta nilai MSE dan RMSE yang paling rendah.
 - Model ini menunjukkan kinerja prediktif paling tinggi dalam memprediksi harga apartemen di Jakarta.
 
-## 7. Struktur Laporan
-
-Laporan ini disusun dengan mengikuti struktur laporan data science:
-
-1. **Domain Proyek**: Latar belakang dan urgensi masalah.
-2. **Business Understanding**: Penjabaran tujuan dan solusi.
-3. **Data Understanding**: Eksplorasi awal dan deskripsi fitur.
-4. **Data Preparation**: Teknik preprocessing secara runtut.
-5. **Modeling**: Pemilihan dan evaluasi model.
-6. **Evaluation**: Penilaian performa model dan pemilihan model terbaik.
-
-> Semua grafik dan hasil model telah divisualisasikan menggunakan matplotlib dan seaborn agar memudahkan interpretasi.
-
 ---
 
 **Catatan**: Notebook ini mendukung reproduksibilitas penuh dengan menyimpan model terbaik (`joblib`) dan scaler yang digunakan.
