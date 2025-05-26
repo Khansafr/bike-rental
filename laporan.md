@@ -1,4 +1,4 @@
-# Laporan Proyek: Prediksi Harga Apartemen di Jakarta menggunakan Machine Learning
+# Laporan Proyek: Prediksi Harga Apartemen di Jakarta
 
 ## 1. Domain Proyek
 
