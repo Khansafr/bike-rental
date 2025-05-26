@@ -73,10 +73,11 @@ Model dievaluasi menggunakan metrik evaluasi yang tepat, yaitu **R2, MAE, MSE, d
 ### Visualisasi
 
 #### Gambar 1: Scatter Plot Fitur vs Log Harga
-![Scatter Plot](https://drive.google.com/file/d/1-Djta6hl_kvasmn5zCa1sFAb7uayKE0L/view?usp=sharing)
+![Scatter Plot](https://drive.google.com/uc?export=view&id=1-Djta6hl_kvasmn5zCa1sFAb7uayKE0L)
 
 #### Gambar 2: Heatmap Korelasi
-![Heatmap Korelasi](https://drive.google.com/file/d/1QU6iXnfphjy-wKIw4I4wN-PSRjucfaji/view?usp=drive_link)
+![Heatmap Korelasi](https://drive.google.com/uc?export=view&id=1QU6iXnfphjy-wKIw4I4wN-PSRjucfaji)
+
 
 ## 4. Data Preparation
 
