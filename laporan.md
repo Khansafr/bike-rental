@@ -72,8 +72,11 @@ Model dievaluasi menggunakan metrik evaluasi yang tepat, yaitu **R2, MAE, MSE, d
 
 ### Visualisasi
 
-* Scatter plot fitur vs log harga menunjukkan korelasi yang signifikan pada fitur `Luas`, `Kamar Tidur`, dan `Harga per m2`.
-* Heatmap korelasi digunakan untuk menilai kekuatan hubungan antara fitur dan target.
+#### Gambar 1: Scatter Plot Fitur vs Log Harga
+![Scatter Plot](https://drive.google.com/file/d/1-Djta6hl_kvasmn5zCa1sFAb7uayKE0L/view?usp=sharing)
+
+#### Gambar 2: Heatmap Korelasi
+![Heatmap Korelasi](https://drive.google.com/file/d/1QU6iXnfphjy-wKIw4I4wN-PSRjucfaji/view?usp=drive_link)
 
 ## 4. Data Preparation
 
