@@ -148,7 +148,7 @@ Model dievaluasi menggunakan metrik evaluasi yang tepat, yaitu **R2, MAE, MSE, d
 | XGBoost Tuned          | 0.9928   | 0.0260  | 0.1612  | 0.0622  |
 | Decision Tree Tuned    | 0.9896   | 0.0377  | 0.1941  | 0.0540  |
 
-### ✅ Model Terbaik
+### Model Terbaik
 - **Random Forest Tuned** menjadi model terbaik berdasarkan skor **R² = 0.9941**, serta nilai MSE dan RMSE yang paling rendah.
 - Model ini menunjukkan kinerja prediktif paling tinggi dalam memprediksi harga apartemen di Jakarta.
 
