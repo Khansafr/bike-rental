@@ -156,7 +156,7 @@ Model dievaluasi menggunakan metrik evaluasi yang tepat, yaitu **R2, MAE, MSE, d
 ![Actual vs Predicted](https://drive.google.com/uc?export=view&id=1PKL8gjSYwSv2ahWRkW7Tma2Zcflgj5tK)
 
 #### Gambar 4: Distribusi Persentase Error Prediksi
-![Percentage Error](https://drive.google.com/uc?export=1hwxQd9brPgoDofaYv91iKR8qIrclZ8Zj)
+![Percentage Error](https://drive.google.com/uc?export=view&id=1hwxQd9brPgoDofaYv91iKR8qIrclZ8Zj)
 
 ---
 
