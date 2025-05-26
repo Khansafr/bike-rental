@@ -49,7 +49,7 @@ Model dievaluasi menggunakan metrik evaluasi yang tepat, yaitu **R2, MAE, MSE, d
 
 ### Informasi Data
 
-* Jumlah baris awal: 2.338
+* Jumlah baris awal: 3.993
 * Kolom-kolom utama: `Harga`, `Luas Bangunan`, `Kamar Tidur`, `Kelurahan`, `Kecamatan`, `Kota`, `Hak Guna`.
 
 ### Deskripsi Fitur
